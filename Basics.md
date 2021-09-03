@@ -1,3 +1,5 @@
-## 101
-- Milb：提供基于Spark的机器学习算法库
+## Spark
+- Distributed Storage& Distributed Computing
+  - Disbuted Storage: HDFS, NoSQL
+  - Distributed Computing: MapReduce(Hadoop), Spark(substitution for MapReduce but not Hadoop)
 - 
