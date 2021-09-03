@@ -16,7 +16,14 @@ Hadoop is consuming for I/O. Spark in not restraint with Map&Reduce. Can save to
   - Job: operations on RDDs
   - Stage: Unit for Job
   - Shuffle: Spark generates DAG based on the relationships among RDDs, which leads to wide/narow dependency(Shuffle or not). 
+  - Lazy evaluation
  - Spark Procedure
    SparkContext -> Cluster Manager -> Executor -> DAGScheduler -> TaskScheduler -> reverse
- - RDD Programming
-   - 
+ - RDD Programming. https://spark.apache.org/docs/3.1.1/api/python/index.html
+   - foreach: Applies the f function to all Row of this DataFrame.
+   - filter
+   - map
+   - groupByKey
+   - reduceByKey
+   - count, collect, first, take(n), reduce
+   - persist, unpersist, cache -> persist(MEMORY_ONLY)
