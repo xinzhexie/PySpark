@@ -8,4 +8,10 @@
 - Why Spark?
 Hadoop is consuming for I/O. Spark in not restraint with Map&Reduce. Can save to mamory. 
 - Spark Basics
-  - RDD: 
+  - RDD: Resillient Distributed Dataset. 
+  - Application: User-written spark program
+  - Task: unit for execution
+  - Job: operations on RDDs
+  - Stage: Unit for Job
+ - Spark Procedure
+   SparkContext -> Cluster Manager -> Executor -> DAGScheduler -> TaskScheduler -> reverse
