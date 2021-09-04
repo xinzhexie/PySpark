@@ -64,6 +64,75 @@ groupByKey也是对每个key进行操作，但只生成一个 sequence，groupBy
     DataFrame.groupBy( )
     DataFrame.sort( )
     ```
+    ```
+    #random
+    from pyspark.sql.functions import rand, randn 
+    df = spark.range(0, 10).withColumn('rand1', rand(seed=10)) \
+                       .withColumn('rand2', rand(seed=27))
+    df.show()
+    #round
+    from pyspark.sql.functions import round
+    df = spark.createDataFrame([(2.5,)], ['a'])
+    df.select(round('a', 0).alias('r')).show()
+    
+    #sample
+    sample1 = color_df.sample(
+    withReplacement=False, # 无放回抽样
+    fraction=0.6,
+    seed=1000)
+    
+    #describe
+    spark_df.describe().show()
+    spark_df.describe('a').show()
+    
+    #minmax
+    color_df.select(min('uniform'), max('uniform')).show()
+    
+    #mean variance
+    color_df.select(mean('uniform').alias('mean'),
+                stddev('uniform').alias('stddev'))\
+    .show()
+    
+    #cov corr
+    # 协方差
+    df.stat.cov('rand1','rand2')
+
+    # 样本协方差
+    from pyspark.sql.functions import covar_pop
+    df.agg(covar_samp("rand1", "rand1").alias('new_col')).collect()
+
+    # 相关系数
+    df.stat.corr('rand1', 'rand2')
+    
+    #Create a DataFrame with two columns (name, item)
+    names = ["Alice", "Bob", "Mike"]
+    items = ["milk", "bread", "butter", "apples", "oranges"]
+    df = spark.createDataFrame([(names[i % 3], items[i % 5]) for i in range(100)], ["name", "item"])
+    df.show(5)
+
+    df.stat.crosstab("name", "item").show()
+    
+    #freq
+    # 找出现次数最多的元素(频数分布)
+    df = spark.createDataFrame([(1, 2, 3) if i % 2 == 0 else (i, 2 * i, i % 4) for i in range(100)],
+                               ["a", "b", "c"])
+    df.show(10)
+
+    # 下面的代码找到每列出现次数占总的40%以上频繁项目
+    df.stat.freqItems(["a", "b", "c"], 0.4).show()
+    
+    #distinct
+    df.agg(func.countDistinct('a')).show()
+    
+    #grouping
+    Aggregate function: indicates whether a specified column in a GROUP BY list is aggregated or not, returns 1 for aggregated or 0 for not aggregated in the result set.
+    
+    df.cube("name").agg(func.grouping("name"), func.sum("age")).orderBy("name").show()
+    
+    #grouping_id
+    df.cube("name").agg(grouping_id(), sum("age")).orderBy("name").show()
+    
+    ```
     - RDD <-> dataframe
  - Spark Streaming
  - Spark ML Lib
