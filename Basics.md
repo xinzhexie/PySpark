@@ -44,5 +44,9 @@ groupByKey也是对每个key进行操作，但只生成一个 sequence，groupBy
    - SparkSession: load data from different source and convert to dataframe. 
    
    `from pyspark import SparkContext,SparkConf
-from pyspark.sql import SparkSession
-spark = SparkSession.builder.config(conf = SparkConf()).getOrCreate()`
+   
+    from pyspark.sql import SparkSession
+    
+    spark = SparkSession.builder.config(conf = SparkConf()).getOrCreate()`
+    
+    -d
