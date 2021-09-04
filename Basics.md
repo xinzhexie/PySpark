@@ -27,6 +27,9 @@ Hadoop is consuming for I/O. Spark in not restraint with Map&Reduce. Can save to
    - reduceByKey
    - count, collect, first, take(n), reduce
    - persist, unpersist, cache -> persist(MEMORY_ONLY)
+   - Boardcast
+   - Accumulator
+   - Serializers
    - RDD Partition. close to numebr of cores. parallelize, reparititon
  - Paired RDD
  a distributed collection of data with the key-value pair. Created by Map or from list. 
