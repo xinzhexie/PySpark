@@ -41,7 +41,7 @@ groupByKey也是对每个key进行操作，但只生成一个 sequence，groupBy
    - sortBy
    - mapValues
    - join
- - Spark SQL
+ - Spark SQL    https://blog.csdn.net/qq_45710900/article/details/102560025
    - Hive: SQL on Hadoop. Convert SQL to Hadoop.
    - Dataframe: distributed dataset based on RDD
    - SparkSession: load data from different source and convert to dataframe. 在启动进入pyspark以后，pyspark就默认提供了一个SparkContext 对象（名称为sc）和一个SparkSession对象（名称为spark）
