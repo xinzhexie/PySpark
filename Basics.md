@@ -61,3 +61,6 @@ groupByKey也是对每个key进行操作，但只生成一个 sequence，groupBy
     DataFrame.groupBy( )
     DataFrame.sort( )
     ```
+    - RDD <-> dataframe
+ - Spark Streaming
+ - Spark ML Lib
