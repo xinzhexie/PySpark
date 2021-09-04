@@ -110,7 +110,7 @@ groupByKey也是对每个key进行操作，但只生成一个 sequence，groupBy
     df = spark.createDataFrame([(names[i % 3], items[i % 5]) for i in range(100)], ["name", "item"])
     df.show(5)
 
-    df.stat.crosstab("name", "item").show()
+    df.stat.crosstab("name", "item").show() #Computes a pair-wise frequency table of the given columns. Also known as a contingency table.
     
     #freq
     # 找出现次数最多的元素(频数分布)
